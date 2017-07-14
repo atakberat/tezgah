@@ -17,7 +17,7 @@ and open the template in the editor.
 
     </script>
     <style>
-        div.ornekler {
+        div {
             border: 2px solid black;
             font-size: 16px;
             background-color: lightgray;
@@ -33,20 +33,46 @@ and open the template in the editor.
 </head>
 <body style="font-family: Arial">
     <form id="form1" runat="server">
-        <div class="ornekler">
-            Çalışma Örnekleri
-                <ul id="kaynak">
+        <div class="orneklerJquery">
+            Jquery Çalışma Örnekleri
+                <ul id="jquery">
                     <li data-value="ornek"><a href="01_jqWhatIs.php">01 JQuery Nedir? Ne işe yarar?</a></li>
                     <li data-value="ornek"><a href="02_jqDocumentReady.php">02 Document Ready?</a>&nbsp;&nbsp;<a href="02_jqDom_window.php">02 Dom ve window load olayı</a></li>
+                    <li data-value="ornek"><a href="03_cdn_kullanimi.php">03 CDN Kullanımının Avantaj / Dezavantajları</a></li>
+                    <li data-value="ornek"><a href="04_jqIdSelector.php">04 #id selector</a></li>
+                    <li data-value="ornek"><a href="05_jqElementSelector.php">05 $element selector</a></li>
+                    <li data-value="ornek"><a href="06_jqClassSelector.php">06 .class selector</a></li>
                     <li data-value="ornek"><a href="jqdrag.php">Draggable Nesne</a></li>
                     <li data-value="ornek"><a href="jqdrag_snap.php">Draggable Snap Olayı</a></li>
                     <li data-value="ornek"><a href="jqdrop.php">Dropabble Nesne</a></li>
                 </ul>
         </div>
-
+        <div class="orneklerJavaScript">
+            Javascript Çalışma Örnekleri
+                <ul id="javascript">
+                    <li data-value="ornek"><a href="41_jsImageGalery.php">Javascriptle Fotoğraf Galerisi</a> </li>
+                    
+                </ul>
+        </div>
+        <div class="orneklerBootstrap">
+            Bootstrap Çalışma Örnekleri
+                <ul id="bootstrap">
+                    <li data-value="ornek"><a href="01_bootstrapDialog.php">Bootstrap diyalog kutusu örneği</a></li>
+                    
+                </ul>
+        </div>
+        <div class="orneklerJson">
+            Json Çalışma Örnekleri
+                <ul id="json">
+                    <li data-value="ornek"><a href="01_jsonBasitOrnek.php">Json basit uygulaması</a></li>    
+                </ul>
+        </div>
+        <div class="orneklerFabricjs">
+            Json Çalışma Örnekleri
+                <ul id="fabricjs">
+                    <li data-value="ornek"><a href="01_fabricjsCrop.php">Fabric JS Crop Örneği</a></li>    
+                </ul>
+        </div>
     </form>
-    <?php
-    // put your code here
-    ?>
 </body>
 </html>

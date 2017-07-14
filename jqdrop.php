@@ -13,17 +13,20 @@ and open the template in the editor.
     <script src="js/jquery-ui.js"></script>
     <link href="js/jquery-ui.css" rel="stylesheet"/>
     <script type="text/javascript">
-        var uyari=0;
+        //var uyari=0;
         $(document).ready(function(){
             $("#kaynak li").draggable({
                 helper: 'clone',
-                revert:'invalid'
+                revert:'invalid',
+                start:function(){
+                    console.log("başladı");
+                }
             });
             
             $("#divUlkeler").droppable({
                 accept:'li[data-value="ulke"]',
                 over: function(event,ui){
-                   console.log(uyari++); 
+                   //console.log(uyari++); 
                 },
                 drop: function(event,ui){
                     $("#ulkeler").append(ui.draggable);     
@@ -32,7 +35,7 @@ and open the template in the editor.
             $("#divSehirler").droppable({
                 accept:'li[data-value="sehir"]',
                 over: function(event,ui){
-                   console.log(uyari--); 
+                   //console.log(uyari--); 
                 },
                 drop: function(event,ui){
                     $("#sehirler").append(ui.draggable);
