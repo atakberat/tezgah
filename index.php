@@ -51,7 +51,7 @@ and open the template in the editor.
             Javascript Çalışma Örnekleri
                 <ul id="javascript">
                     <li data-value="ornek"><a href="41_jsImageGalery.php">Javascriptle Fotoğraf Galerisi</a> </li>
-                    
+                    <li data-value="ornek"><a href="45_jsMouseEvents.php">Javascript Fare olayları</a> </li>
                 </ul>
         </div>
         <div class="orneklerBootstrap">
@@ -68,9 +68,10 @@ and open the template in the editor.
                 </ul>
         </div>
         <div class="orneklerFabricjs">
-            Json Çalışma Örnekleri
+            Fabric Çalışma Örnekleri
                 <ul id="fabricjs">
-                    <li data-value="ornek"><a href="01_fabricjsCrop.php">Fabric JS Crop Örneği</a></li>    
+                    <li data-value="ornek"><a href="fabricjsOrnekleri/01_fabricjsCrop.php">Fabric JS Crop Örneği</a></li>
+                    <li data-value="ornek"><a href="fabricjsOrnekleri/02_fabricjsCanvas.php">Fabric 2 Canvas Örneği</a></li>
                 </ul>
         </div>
     </form>

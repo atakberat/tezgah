@@ -5,7 +5,7 @@
 //canvas.renderAll();
 
 var canvas = new fabric.Canvas('c1');
-var src = "images/firat_bisey.jpg";
+var src = "../images/firat_bisey.jpg";
 canvas.backgroundColor = "#254,254,254";
 canvas.renderAll();
 
