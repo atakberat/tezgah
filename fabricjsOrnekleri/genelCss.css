@@ -1,0 +1,64 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+    .parent{
+        float: left;
+        width: 1000px;
+        height: 500px;
+        background-color: #48f951;
+        position: relative;
+    }
+    .subParent{
+        float: left;
+        width: 982px;
+        height: 482px;
+        position: absolute;
+        z-index: 999;
+        border: 1px dashed #e53039;
+        margin: 7px 0px 0px 7px;  
+    }
+    .leftContent{
+        float: left;
+        width: 489px;
+        height: 500px;
+        background-color: #c1d4f2;  
+    }
+    .centerContent{
+        float: left;
+        width: 20px;
+        height: 500px;  
+        background-color: white;
+        border: 1px dashed #e53039;
+
+    }
+    .rightContent{
+        float: left;
+        width: 489px;
+        height: 500px;
+        background-color: #c1d4f2;
+    }
+    #myCanvas{
+        float: left;
+        width: 100%;
+        height: 500px;
+        position: absolute;
+        z-index: 9999;
+    }
+    .btnList{
+        float: left;
+        width: 100%;
+        height: auto;
+    }
+    .btnList li{
+        float: left;
+        width: auto;
+        height: auto;
+    }
+    .btnList li a{
+        color: #f27d30;
+        padding: 9px 15px;
+        text-align: center;
+        background-color: #c1d4f2;
+        font-size: 12px;
+    }

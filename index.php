@@ -7,7 +7,8 @@ and open the template in the editor.
 <html>
     <head runat="server">
         <meta charset="UTF-8">
-    <title>Uygulama Tezgahı</title>       
+    <title>Uygulama Tezgahı</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
     
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -72,6 +73,7 @@ and open the template in the editor.
                 <ul id="fabricjs">
                     <li data-value="ornek"><a href="fabricjsOrnekleri/01_fabricjsCrop.php">Fabric JS Crop Örneği</a></li>
                     <li data-value="ornek"><a href="fabricjsOrnekleri/02_fabricjsCanvas.php">Fabric 2 Canvas Örneği</a></li>
+                    <li data-value="ornek"><a href="fabricjsOrnekleri/03_fabricjsCanvasTwo.php">Fabric 2 Canvas Örneği 2</a></li>
                 </ul>
         </div>
     </form>
