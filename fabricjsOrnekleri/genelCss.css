@@ -6,7 +6,7 @@ body{
         float: left;
         width: 1000px;
         height: 500px;
-        background-color: #48f951;
+        /*background-color: #48f951;*/
         position: relative;
     }
     .subParent{
@@ -20,30 +20,42 @@ body{
     }
     .leftContent{
         float: left;
-        width: 489px;
+        width: 488px;
         height: 500px;
-        background-color: #c1d4f2;  
+        z-index: 99;
+        background-color: #c1d4f2;
+        background-size: 100% 100%;
+  
     }
     .centerContent{
         float: left;
-        width: 20px;
+        width: 21px;
         height: 500px;  
         background-color: white;
+        z-index: 99;
         border: 1px dashed #e53039;
 
     }
     .rightContent{
         float: left;
-        width: 489px;
+        width: 488px;
         height: 500px;
+        z-index: 99;
         background-color: #c1d4f2;
+        background-size: 100% 100%;
     }
     #myCanvas{
         float: left;
-        width: 100%;
-        height: 500px;
-        position: absolute;
+        position: absolute !important;
+        z-index: 999;
+    }
+    .upper-canvas{
+        position: absolute !important;
         z-index: 9999;
+    }
+    .canvas-container{
+        position: absolute !important;
+        z-index: 9998;
     }
     .btnList{
         float: left;

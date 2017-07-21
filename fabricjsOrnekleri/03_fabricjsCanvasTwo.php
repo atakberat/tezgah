@@ -19,6 +19,7 @@ and open the template in the editor.
 <body>
 <div class="parent">
     <canvas id="myCanvas"></canvas>
+    <!-- <div id="myCanvas"></div> -->
     <div class="subParent"></div>
     <div class="leftContent"></div>
     <div class="centerContent"></div>
@@ -27,8 +28,9 @@ and open the template in the editor.
 
 <div class="btnList">
     <ul>
-        <li><a href="#" class="bg" data-id="../images/sample01.jpg" data-denemeAlani="Birinci buton tıklandı">Bg ekle</a></li>
-        <li><a href="#" id="btnSagDegistir" data-id="../images/sample02.jpg" data-denemeAlani="İkinci buton tıklandı">Bg ekle</a></li>
+        <li><a href="#" class="bg" data-id="../images/sample01.jpg" data-denemeAlani="Birinci buton tıklandı">Bg ekle</a></li><br/>
+        <li><a href="#" id="btnSagDegistir" data-id="../images/sample02.jpg" data-denemeAlani="İkinci buton tıklandı">Bg ekle</a></li><br/>
+        <li><input type="checkbox" id="chkSafeArea">Güvenli Alanı Gizle</li>
     </ul>
 </div>
 </body>
