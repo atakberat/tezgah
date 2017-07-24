@@ -22,6 +22,21 @@ $("#btnSecmeSag").click(function(){
 console.log("Sağ Seçildi");
 canvas.setActiveObject(canvas.item(1));
 });
+
+$("#btnSil").click(function(){
+canvas.remove(canvas.getActiveObject());
+//renderAll();
+});
+
+$("#btnIcerik").click(function(){
+console.log(canvas.getObjects().length);
+console.log(canvas.getActiveGroup().length);
+});
+
+
+
+
+
 $("#btnSecmeTumu").click(function(){
 //console.log("Tümü Seçildi");
 //console.log(canvas.getObjects().length) //canvas üzerindedi nesne sayısı
@@ -63,7 +78,7 @@ $("#chkGizleme").change(function(){
     gorunum=false;
     solSinirKutusu.set("stroke","transparent");
     sagSinirKutusu.set("stroke","transparent");
-    katlamaCizgisi.set("stroke","transparent");
+    //katlamaCizgisi.set("stroke","transparent");
     canvas.renderAll();
     //console.log(gorunum+" -- gorunum kapatıldı");
   }
@@ -71,12 +86,88 @@ $("#chkGizleme").change(function(){
     gorunum=true;
     solSinirKutusu.set("stroke","red");
     sagSinirKutusu.set("stroke","red");
-    katlamaCizgisi.set("stroke","red");
+    //katlamaCizgisi.set("stroke","red");
     canvas.renderAll();
     //console.log(gorunum+" -- gorunum açıldı");
   }
 
 });
+
+////////////////////////////////////////////////////////////////////
+
+var aktif="sol";
+canvas.on('mouse:move', function(evn) {
+  if(evn.e.offsetX > 0 && evn.e.offsetX <=510){
+    //console.log("solda");
+aktif="sol";
+secim();
+  }
+  else{
+   // console.log("sağda");
+aktif="sag";
+secim();
+  }
+
+function secim(){
+if(aktif==="sol"){
+  console.log("solda");
+}else{
+  console.log("sagda");
+}}
+
+/*console.log("x=  "+evn.e.offsetX);
+console.log("y=  "+evn.e.offsetY);*/
+});
+
+function duplicateObj() {
+  var obj = canvas.getActiveObject();
+  var clone = fabric.util.object.clone(obj);
+  clone.set({left: 100,top: 100});
+  canvas.add(clone);
+}
+
+//sürükleyip kopyalama
+//////////////////////////////////////////////////////////////////////
+canvas.on('mouse:up', function() {
+  
+if(aktif==="sag"){
+duplicateObj();
+//console.log("yazdım");
+}
+
+});
+
+
+// tuşa basınca gerçekleşen foksiyonlar.
+/////////////////////////////////////////////////////////////////////
+
+
+var ctrlDown = false;
+var canvasWrapper = document.getElementById('canvasWrapper');
+canvasWrapper.tabIndex = 1000;
+canvasWrapper.addEventListener('keydown', function(e) {
+  console.log(e.keyCode);
+//If ctrl is pressed, set ctrlDown to true
+if (e.keyCode == 17) ctrlDown = true;
+
+if (ctrlDown && e.keyCode == 86){
+  console.log(e.keyCode);
+}
+if(e.keyCode == 46)
+{
+  canvas.remove(canvas.getActiveObject());
+}
+
+
+})
+  
+
+
+
+
+
+
+
 ///////////////////////////////////////////////////////////////////
 
 
@@ -84,9 +175,11 @@ var solSinirKutusu= new fabric.Rect({
   selectable:false,
   left: 10,
   top: 10,
-  width: 490,
-  height: 480,
+  width: 500,
+  height: 500,
   strokeDashArray: [50,10],
+  evented: false,  ///olaylanması kapatıldı. sanki yokmuş gibi davranılıyor.
+  /*strokeLineCap:'round',*/
   stroke:'red',
   fill:'transparent',
   opacity: 1
@@ -104,9 +197,9 @@ var solSinirKutusu= new fabric.Rect({
 //});
 
 
-var katlamaCizgisi = new fabric.Rect({
+/*var katlamaCizgisi = new fabric.Rect({
   selectable:false,
-  left: 520,
+  left: 500,
   top: 10,
   width: 20,
   height: 480,
@@ -115,16 +208,17 @@ strokeDashArray: [50,10],
 stroke:'red',
   //border: 1//,
   fill:'#e6ffff'//,
-});
+});*/
 
 
 var sagSinirKutusu= new fabric.Rect({
   selectable:false,
-  left: 530,
+  left: 520,
   top: 10,
-  width: 490,
-  height: 480,
+  width: 500,
+  height: 500,
   strokeDashArray: [50,10],
+  evented: false,  ///olaylanması kapatıldı. sanki yokmuş gibi davranılıyor.
   stroke:'red',
   fill:'transparent',
   opacity: 1
@@ -164,6 +258,8 @@ var circle=new fabric.Circle({
 var text = new fabric.IText('hello !', {
   left: 300,
   top: 300,
+  width: 100,
+  height: 100,
   fill:'#e91e63',
   fontFamily: 'comic sans ms',
   sort: 'text',
@@ -171,6 +267,6 @@ var text = new fabric.IText('hello !', {
   perPixelTargetFind: false
 });
 
-canvas.add(solSinirKutusu,sagSinirKutusu,katlamaCizgisi,rect,text,circle);
+canvas.add(solSinirKutusu,sagSinirKutusu,/*katlamaCizgisi,*/rect,text,circle);
 canvas.renderAll();
 //canvas.add(text);

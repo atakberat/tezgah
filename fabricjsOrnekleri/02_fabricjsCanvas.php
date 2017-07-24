@@ -15,10 +15,10 @@ and open the template in the editor.
     <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
     <script src="../js/jquery-ui.js" type="text/javascript"></script>
     <div style="display: inline-flex;margin: auto;">
-    <div>
+    <div id="canvasWrapper">
 <!--    <h2>Canvas A</h2>-->
     <!--    canvas olusturulmadan kodların cekilmesi manasızdır-->
-    <canvas id="a" width="1010" height="500" style="border: 2px solid #003eff;"></canvas><!--yorum -->
+    <canvas id="a" width="1030" height="520" style="border: 2px solid #003eff;"></canvas><!--yorum -->
     </div>
 <!--    <div style="margin-left: 50px;">
     <h2>Canvas B</h2>
@@ -30,6 +30,9 @@ and open the template in the editor.
         <input type="button" id="btnSecmeSol" value="Soldaki Nesneleri Seç"></input>
         <input type="button" id="btnSecmeSag" value="Sağdaki Nesneleri Seç"></input>
         <input type="button" id="btnSecmeTumu" value="Tüm Nesneleri Seç"></input>
+        <input type="button" id="btnSil" value="Aktif Nesneyi Sil"></input>
+        <input type="button" id="btnIcerik" value="Canvas İçeriğini Logla"></input>
+        
     </div>  
 
 </head>
