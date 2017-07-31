@@ -26,12 +26,12 @@ and open the template in the editor.
     </div>-->
     </div>
     <div style="margin: auto;">
-        <input type="checkbox" id="chkGizleme"><label id="checkedLabel">Güvenli Alanları Gizle</label> </input>
-        <input type="button" id="btnSecmeSol" value="Soldaki Nesneleri Seç"></input>
-        <input type="button" id="btnSecmeSag" value="Sağdaki Nesneleri Seç"></input>
-        <input type="button" id="btnSecmeTumu" value="Tüm Nesneleri Seç"></input>
-        <input type="button" id="btnSil" value="Aktif Nesneyi Sil"></input>
-        <input type="button" id="btnIcerik" value="Canvas İçeriğini Logla"></input>
+        <input type="checkbox" id="chkSafeArea"><label id="checkedLabel">Güvenli Alanları Gizle</label> </input>
+        <input type="button" id="btnSelectLeft" value="Soldaki Nesneleri Seç"></input>
+        <input type="button" id="btnSelectRight" value="Sağdaki Nesneleri Seç"></input>
+        <input type="button" id="btnSelectAll" value="Tüm Nesneleri Seç"></input>
+        <input type="button" id="btnDeleteObject" value="Aktif Nesneyi Sil"></input>
+        <input type="button" id="btnLogging" value="Canvas İçeriğini Logla"></input>
         
     </div>  
 

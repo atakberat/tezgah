@@ -37,15 +37,17 @@ and open the template in the editor.
         <div class="orneklerJquery">
             Jquery Çalışma Örnekleri
                 <ul id="jquery">
-                    <li data-value="ornek"><a href="01_jqWhatIs.php">01 JQuery Nedir? Ne işe yarar?</a></li>
-                    <li data-value="ornek"><a href="02_jqDocumentReady.php">02 Document Ready?</a>&nbsp;&nbsp;<a href="02_jqDom_window.php">02 Dom ve window load olayı</a></li>
-                    <li data-value="ornek"><a href="03_cdn_kullanimi.php">03 CDN Kullanımının Avantaj / Dezavantajları</a></li>
-                    <li data-value="ornek"><a href="04_jqIdSelector.php">04 #id selector</a></li>
-                    <li data-value="ornek"><a href="05_jqElementSelector.php">05 $element selector</a></li>
-                    <li data-value="ornek"><a href="06_jqClassSelector.php">06 .class selector</a></li>
-                    <li data-value="ornek"><a href="jqdrag.php">Draggable Nesne</a></li>
-                    <li data-value="ornek"><a href="jqdrag_snap.php">Draggable Snap Olayı</a></li>
-                    <li data-value="ornek"><a href="jqdrop.php">Dropabble Nesne</a></li>
+                    <li data-value="ornek"><a href="/jqueryExams/01_jqWhatIs.php">01 JQuery Nedir? Ne işe yarar?</a></li>
+                    <li data-value="ornek"><a href="/jqueryExams/02_jqDocumentReady.php">02 Document Ready?</a>&nbsp;&nbsp;<a href="/jqueryExams/02_jqDom_window.php">02 Dom ve window load olayı</a></li>
+                    <li data-value="ornek"><a href="/jqueryExams/03_cdn_kullanimi.php">03 CDN Kullanımının Avantaj / Dezavantajları</a></li>
+                    <li data-value="ornek"><a href="/jqueryExams/04_jqIdSelector.php">04 #id selector</a></li>
+                    <li data-value="ornek"><a href="/jqueryExams/05_jqElementSelector.php">05 $element selector</a></li>
+                    <li data-value="ornek"><a href="/jqueryExams/06_jqClassSelector.php">06 .class selector</a></li>
+                    <li data-value="ornek"><a href="/jqueryExams/jqDrag.php">Draggable Nesne</a></li>
+                    <li data-value="ornek"><a href="/jqueryExams/jqdrag_snap.php">Draggable Snap Olayı</a></li>
+                    <li data-value="ornek"><a href="/jqueryExams/jqdrop.php">Dropabble Nesne</a></li>
+                    <li data-value="ornek"><a href="/jqueryExams/07_jqDateTime.php">Date Time Örneği</a></li>
+                    <li data-value="ornek"><a href="/jqueryExams/10_inputExam.php">10 İnput örneği</a></li>
                 </ul>
         </div>
         <div class="orneklerJavaScript">
@@ -74,6 +76,7 @@ and open the template in the editor.
                     <li data-value="ornek"><a href="fabricjsOrnekleri/01_fabricjsCrop.php">Fabric JS Crop Örneği</a></li>
                     <li data-value="ornek"><a href="fabricjsOrnekleri/02_fabricjsCanvas.php">Fabric 2 Canvas Örneği</a></li>
                     <li data-value="ornek"><a href="fabricjsOrnekleri/03_fabricjsCanvasTwo.php">Fabric 2 Canvas Örneği 2</a></li>
+                    <li data-value="ornek"><a href="fabricjsOrnekleri/06_animateExample.php">Animate Örneği</a></li>
                 </ul>
         </div>
     </form>

@@ -43,6 +43,6 @@ and open the template in the editor.
 </head>
 <body>
 <div id="div1"></div>
-<img id="img1" src="images/120x70.gif" alt=""/>
+<img id="img1" src="../images/120x70.gif" alt=""/>
 </body>
 </html>

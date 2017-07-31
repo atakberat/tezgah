@@ -1,3 +1,5 @@
+//Canvas tanımlama
+////////////////////////////////////////
 var canvas  = new fabric.Canvas('a', {
 	perPixelTargetFind: false,
         backgroundColor: 'transparent'//,
@@ -5,39 +7,63 @@ var canvas  = new fabric.Canvas('a', {
 //        strokeDashArray: [3,10],
 //        stroke:'red'
 });
-/////////////////////////////////////////////////////////////////////
-//canvas üzerindeki objeyi görmezden gelme
-//canvas.item(0).evented = false;
+
+canvas.selection = false;
+canvas.forEachObject(function(o) {
+  o.selectable = false;
+});
+
+
+// kısa sorgulama işlemi
+/////////////////////////////////////////
+$(document).ready(function(){
+// var activeObject = canvas.getActiveObject() ? canvas.getActiveObject() : false;
+//console.log("1"=="2" ? "eşit" :"değil");
+//for(i=0;i<=5;i++){
+    setInterval(function (){
+//    console.log("tekrar ediyor");
+    var dateWithTime = new Date();
+    console.log("Saat Şuan "+dateWithTime.getHours()+" : "+dateWithTime.getMinutes()+" : "+dateWithTime.getSeconds()+"  -  "+dateWithTime.getDay()+" / "+dateWithTime.getMonth()+" / "+dateWithTime.getFullYear());
+    },1000);
+
+//}
+});
+//var dateWithTime = new Date();
+//console.log("Saat Şuan :"+dateWithTime.getDate());
+//console.log(dateWithTime.getDate());
+//yenilemeli saat göstergesi
+
 
 canvas.selection=true;
 //console.log("Canvas Yüksekliği= "+canvas.height+" pxl");
 //console.log("Canvas Genişliği= "+canvas.width+" pxl");
 /////////////////////////////////////////////////////////////////////
 //obje seçme alıştırması
-$("#btnSecmeSol").click(function(){
+$("#btnSelectLeft").click(function(){
 console.log("Sol Seçildi");
 canvas.setActiveObject(canvas.item(0));
 });
-$("#btnSecmeSag").click(function(){
+$("#btnSelectRight").click(function(){
 console.log("Sağ Seçildi");
 canvas.setActiveObject(canvas.item(1));
 });
 
-$("#btnSil").click(function(){
+$("#btnDeleteObject").click(function(){
 canvas.remove(canvas.getActiveObject());
 //renderAll();
 });
 
 $("#btnIcerik").click(function(){
-console.log(canvas.getObjects().length);
-console.log(canvas.getActiveGroup().length);
+  console.log(canvas.getActiveObject().left);
+/*console.log(.length);
+console.log(canvas.getActiveGroup(getObjects().length));*/
 });
 
 
 
 
 
-$("#btnSecmeTumu").click(function(){
+$("#btnSelectAll").click(function(){
 //console.log("Tümü Seçildi");
 //console.log(canvas.getObjects().length) //canvas üzerindedi nesne sayısı
 //console.log(canvas.getObjects());
@@ -56,12 +82,15 @@ canvas.setActiveGroup(new fabric.Group(canvas.getObjects())).renderAll();
 var gorunum=true;
 var tutucu=$(".checkedLabel").text();
 
-$("#chkGizleme").change(function(){
+$("#chkSafeArea").change(function(){
 //  console.log(chkGizleme.checked);
-  if (chkGizleme.checked===true) {
+  if ("#chkSafeArea".checked===true) {
     //console.log("işaretli");
     //console.log(tutucu);
     $("#checkedLabel").text("Güvenli Alan Çizgileri Gizlendi");
+    leftSafeAreaLine.set("stroke","transparent");
+    rightSafeAreaLine.set("stroke","transparent");
+    canvas.renderAll();
   }
   else{
     $("#checkedLabel").text("Güvenli Alan Çizgileri Gösteriliyor");
@@ -70,46 +99,49 @@ $("#chkGizleme").change(function(){
     setTimeout(function(){
     $("#checkedLabel").text("Güvenli Alanları Gizle");
     $("#checkedLabel").css({"background-color":"transparent","color":"black"});
+    leftSafeAreaLine.set("stroke","red");
+    rightSafeAreaLine.set("stroke","red");
+    canvas.renderAll();
     },1000);
     //console.log("işaretsiz");
 
   }
-  if (gorunum===true) {
-    gorunum=false;
-    solSinirKutusu.set("stroke","transparent");
-    sagSinirKutusu.set("stroke","transparent");
-    //katlamaCizgisi.set("stroke","transparent");
-    canvas.renderAll();
-    //console.log(gorunum+" -- gorunum kapatıldı");
-  }
-  else{
-    gorunum=true;
-    solSinirKutusu.set("stroke","red");
-    sagSinirKutusu.set("stroke","red");
-    //katlamaCizgisi.set("stroke","red");
-    canvas.renderAll();
-    //console.log(gorunum+" -- gorunum açıldı");
-  }
+// /*/*  if (gorunum===true) {
+//     gorunum=false;
+// /*    leftSafeAreaLine.set("stroke","transparent");
+//     rightSafeAreaLine.set("stroke","transparent");*/
+//     //katlamaCizgisi.set("stroke","transparent");
+//     canvas.renderAll();
+//     //console.log(gorunum+" -- gorunum kapatıldı");
+//   }
+//   else{
+//     gorunum=true;
+// /*    leftSafeAreaLine.set("stroke","red");
+//     rightSafeAreaLine.set("stroke","red");*/
+//     //katlamaCizgisi.set("stroke","red");
+//     canvas.renderAll();
+//     //console.log(gorunum+" -- gorunum açıldı");
+//   }*/*/
 
 });
 
 ////////////////////////////////////////////////////////////////////
 
-var aktif="sol";
+var aktif="left";
 canvas.on('mouse:move', function(evn) {
   if(evn.e.offsetX > 0 && evn.e.offsetX <=510){
     //console.log("solda");
-aktif="sol";
-secim();
+aktif="left";
+selected();
   }
   else{
    // console.log("sağda");
-aktif="sag";
-secim();
+aktif="right";
+selected();
   }
 
-function secim(){
-if(aktif==="sol"){
+function selected(){
+if(aktif==="left"){
   console.log("solda");
 }else{
   console.log("sagda");
@@ -148,30 +180,41 @@ canvasWrapper.tabIndex = 1000;
 canvasWrapper.addEventListener('keydown', function(e) {
   console.log(e.keyCode);
 //If ctrl is pressed, set ctrlDown to true
-if (e.keyCode == 17) ctrlDown = true;
+if (e.keyCode === 17) ctrlDown = true;
 
-if (ctrlDown && e.keyCode == 86){
+if (ctrlDown && e.keyCode === 86){
   console.log(e.keyCode);
 }
-if(e.keyCode == 46)
+if(e.keyCode === 46)
 {
   canvas.remove(canvas.getActiveObject());
 }
+if(e.keyCode === 96)
+{
+//  alarm();
+  console.log(getActiveSelection());
 
+}
+});
 
-})
+//deneme fonksiyonu
+///////////////////////////////////////////////
+function getActiveSelection() {
+  var activeObject = canvas.getActiveObject() ? canvas.getActiveObject() : false;
+  var activeGroup = canvas.getActiveGroup() ? canvas.getActiveGroup() : false;
+  var activeSelection = activeObject || activeGroup || false;
+
+  return activeSelection;
+
+}
+function alarm(){
+  console.log("Alarm verildi");
+}
   
 
-
-
-
-
-
-
-///////////////////////////////////////////////////////////////////
-
-
-var solSinirKutusu= new fabric.Rect({
+//sol gizli kare ve sınır çizgileri belirleme
+//////////////////////////////////////////////
+var leftSafeAreaLine= new fabric.Rect({
   selectable:false,
   left: 10,
   top: 10,
@@ -185,11 +228,11 @@ var solSinirKutusu= new fabric.Rect({
   opacity: 1
 });
 
-//solSinirKutusu.setGradient('fill', {
+//leftSafeAreaLine.setGradient('fill', {
 //  x1: 0,
-//  y1: solSinirKutusu.height,
-//  x2: solSinirKutusu.width,
-//  y2: solSinirKutusu.height,
+//  y1: leftSafeAreaLine.height,
+//  x2: leftSafeAreaLine.width,
+//  y2: leftSafeAreaLine.height,
 //  colorStops: {
 //    0: "#c2f0f0",
 //    1: "transparent"
@@ -210,8 +253,9 @@ stroke:'red',
   fill:'#e6ffff'//,
 });*/
 
-
-var sagSinirKutusu= new fabric.Rect({
+//sag gizli kare ve sınır çizgileri belirleme
+//////////////////////////////////////////////
+var rightSafeAreaLine= new fabric.Rect({
   selectable:false,
   left: 520,
   top: 10,
@@ -224,17 +268,20 @@ var sagSinirKutusu= new fabric.Rect({
   opacity: 1
 });
 
-//sagSinirKutusu.setGradient('fill', {
+//rightSafeAreaLine.setGradient('fill', {
 //  x1: 0,
-//  y1: sagSinirKutusu.height,
-//  x2: sagSinirKutusu.width,
-//  y2: sagSinirKutusu.height,
+//  y1: rightSafeAreaLine.height,
+//  x2: rightSafeAreaLine.width,
+//  y2: rightSafeAreaLine.height,
 //  colorStops: {
 //    0: "transparent",
 //    1: "#c2f0f0"
 //  }
 //});
 
+
+//test karesi ekleme
+//////////////////////////////////////////////
 var rect = new fabric.Rect({
   left: 100,
   top: 100,
@@ -245,6 +292,9 @@ var rect = new fabric.Rect({
 });
 
 
+
+//test dairesi ekleme
+//////////////////////////////////////////////
 var circle=new fabric.Circle({
   left:300,
   top:100,
@@ -255,6 +305,9 @@ var circle=new fabric.Circle({
   });
 
 
+
+//test yazı eklemesi
+///////////////////////////////////////////////
 var text = new fabric.IText('hello !', {
   left: 300,
   top: 300,
@@ -267,6 +320,12 @@ var text = new fabric.IText('hello !', {
   perPixelTargetFind: false
 });
 
-canvas.add(solSinirKutusu,sagSinirKutusu,/*katlamaCizgisi,*/rect,text,circle);
+
+
+//////////////////////////////////////////////
+//canvas üzerindeki objeyi görmezden gelme
+//canvas.item(0).evented = false;
+
+canvas.add(leftSafeAreaLine,rightSafeAreaLine,/*katlamaCizgisi,*/rect,text,circle);
 canvas.renderAll();
 //canvas.add(text);

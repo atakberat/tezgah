@@ -9,9 +9,9 @@ and open the template in the editor.
         <meta charset="UTF-8">
     <title>Uygulama Tezgahı</title>       
     
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <link href="js/jquery-ui.css" rel="stylesheet"/>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <link href="../js/jquery-ui.css" rel="stylesheet"/>
     <script type="text/javascript">
         //var uyari=0;
         $(document).ready(function(){
